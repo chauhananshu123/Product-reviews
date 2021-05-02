@@ -9,7 +9,7 @@ const notFound = ()=>{
         <h1> Page Not Found ! </h1>
     )
 }
-const AppRouter = ()=>{
+const AppRouter = () => {
     return (
         <Router>
             <Switch>
