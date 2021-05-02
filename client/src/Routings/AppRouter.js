@@ -1,7 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Dashboard from '../pages/Dashboard';
 import Settings from '../pages/Settings';
+import UrlPage from '../pages/UrlPage';
 import ProtectedRoute from './ProtectedRoute';
 const notFound = ()=>{
     return (
@@ -12,9 +13,12 @@ const AppRouter = ()=>{
     return (
         <Router>
             <Switch>
-                <ProtectedRoute exact path="/" component={Dashboard} />
+                <ProtectedRoute exact path="/index/:shop?" component={Dashboard}  />
                 <ProtectedRoute exact path="/settings" component={Settings} />
-                <ProtectedRoute path="*" component={notFound} />
+
+
+                <Route exact path="/" component={UrlPage} />
+                <Route path="*" component={notFound} />
             </Switch>
         </Router>
     )

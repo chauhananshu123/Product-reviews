@@ -1,8 +1,10 @@
 import React from 'react';
 
+
 const NotAuthenticated = ()=>{
+
     return (
-        <h1> User Is Not Authenticated !!</h1>
+        <h1> Loading.... !!</h1>
     )
 }
 
