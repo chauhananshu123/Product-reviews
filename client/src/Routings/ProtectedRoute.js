@@ -1,10 +1,11 @@
-import React,{ useState, useEffect } from 'react';
+import React,{ useEffect, useContext } from 'react';
 import NotAuthenticated from '../pages/NotAuthenticated';
 //import Axios from 'axios';
 import jwt from 'jsonwebtoken';
+import isVerifiedContext from '../Context/IsVerifiedContext';
 
 const ProtectedRoute = ({ component , ...rest}) => {
-    const [isVerified, setIsVerified] = useState(false);
+    let {isVerified, setIsVerified} = useContext(isVerifiedContext);
     var Component = component;
     useEffect(() => {
         const { shop } = rest.computedMatch.params;

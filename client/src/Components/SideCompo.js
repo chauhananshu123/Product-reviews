@@ -1,10 +1,12 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import SideList from './SubComponent/SideList';
 import SideNavContext from '../Context/SIdeNavContext';
+import ActiveSideBarContext from '../Context/ActiveSideBarContext';
 
 const SideCompo = ()=>{
     let { sidebarOpen, setSideBarOpen } = useContext(SideNavContext);
-    const [sidebarClass, setSidebarClass] = useState("");
+    let { activeSideBar, setActiveSideBar } = useContext(ActiveSideBarContext);
+
     const ulList = [
         {
             name: "Dashboard",
@@ -37,23 +39,23 @@ const SideCompo = ()=>{
             linkname: "/index"  
         }
     ]
-    // useEffect(() => {
-    //     sidebarOpen ? setSidebarClass("side-block") : "";
-    //  }, [sidebarOpen])
+
     const SideBarClose = ()=> {
         setSideBarOpen(false)
     }
     return (
         <div className={ `sidebar ${ sidebarOpen ? 'side-block' : '' }` } >
         <div className="sidebar-brand">
-            <h3> <span className="lab la-accusoft" ></span> Product Reviews <span className="las la-times" onClick={SideBarClose} ></span> </h3>
+            <h3> <span className="lab la-accusoft main-logo-side" ></span> Product Reviews <span id="cross_btn" className="las la-times" onClick={SideBarClose} ></span> </h3>
         </div>
         <div className="sidebar-menu">
             <ul>
                 {
                     ulList.map((element, index)=>{
+                      let actiiv = index === activeSideBar ? "active" : "";
+                      console.log(actiiv);
                         return (
-                            <SideList key={index} element={element} />
+                            <SideList key={index} element={element} indd={index} actiiv={actiiv} />
                         )
                     })
                 }

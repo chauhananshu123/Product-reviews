@@ -17,13 +17,14 @@ const Header = ()=>{
                 </label>
             
             </h1>
-            <div className="user-wrapper" >
+            <h1 className="mobile-name" > Product Reviews </h1>
+            {/* <div className="user-wrapper" >
                 <img src="https://artistdata.s3.amazonaws.com/Images/2d63b5c7-8ba9-485c-81a3-92ba6ed3bcfc.jpg" height="40px" width="40px" alt="" />
                 <div>
                     <h4> John Doe </h4>
                     <small> Super Admin </small>
                 </div>
-            </div> 
+            </div>  */}
         </header>
      
     )
