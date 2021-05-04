@@ -1,11 +1,11 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import SideList from './SubComponent/SideList';
 import SideNavContext from '../Context/SIdeNavContext';
 import ActiveSideBarContext from '../Context/ActiveSideBarContext';
 
 const SideCompo = ()=>{
     let { sidebarOpen, setSideBarOpen } = useContext(SideNavContext);
-    let { activeSideBar, setActiveSideBar } = useContext(ActiveSideBarContext);
+    let { activeSideBar } = useContext(ActiveSideBarContext);
 
     const ulList = [
         {
@@ -14,7 +14,7 @@ const SideCompo = ()=>{
             linkname: "/index"     
         },
         {
-            name: "Customers",
+            name: "Settings",
             icon: "las la-users",   
             linkname: "/settings"     
         },

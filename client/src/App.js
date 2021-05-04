@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import AppRouter from './Routings/AppRouter';
 import SideNavContext from './Context/SIdeNavContext';
 import isVerifiedContext from './Context/IsVerifiedContext';
