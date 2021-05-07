@@ -41,18 +41,18 @@ const stateCookie = cookie.parse(req.headers.cookie).state;
 var shopExistTancefind = shopModel.find({shopName:shop})
     shopExistTancefind.exec()
     .then(result=>{
-var token = jwt.sign({
-  shopName:shopExistTancefind[0].shopName,
-  user:shopExistTancefind[0].shopName
-  },
-    process.env.API_SECRET_KEY,
-    {
-      expiresIn:"10h"
-    }
-  )
+
 
 if(result.length == 1){ 
-
+  var token = jwt.sign({
+    shopName:result[0].shopName,
+    user:result[0].shopName
+    },
+      process.env.API_SECRET_KEY,
+      {
+        expiresIn:"10h"
+      }
+    )
    res.redirect('/index/'+token);
    console.log("app opened");
  
