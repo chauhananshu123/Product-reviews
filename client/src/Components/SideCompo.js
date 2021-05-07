@@ -53,7 +53,7 @@ const SideCompo = ()=>{
                 {
                     ulList.map((element, index)=>{
                       let actiiv = index === activeSideBar ? "active" : "";
-                      console.log(actiiv);
+                    //  console.log(actiiv);
                         return (
                             <SideList key={index} element={element} indd={index} actiiv={actiiv} />
                         )

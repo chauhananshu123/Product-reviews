@@ -37,17 +37,19 @@ if (shop) {
 exports.authCallback =  (req, res) => {
 const { shop, hmac, code, state } = req.query;
 const stateCookie = cookie.parse(req.headers.cookie).state;
- var token = jwt.sign({
-  shopName:shop
- },
-   process.env.API_SECRET_KEY,
-   {
-     expiresIn:"10h"
-   }
- )
+
 var shopExistTancefind = shopModel.find({shopName:shop})
     shopExistTancefind.exec()
     .then(result=>{
+var token = jwt.sign({
+  shopName:shopExistTancefind[0].shopName,
+  user:shopExistTancefind[0].shopName
+  },
+    process.env.API_SECRET_KEY,
+    {
+      expiresIn:"10h"
+    }
+  )
 
 if(result.length == 1){ 
 
@@ -148,7 +150,17 @@ request.post({
     headers: shopRequestHeaders,
     json: true
     },function (error, response, body) {
-
+      
+      var token = jwt.sign({
+        shopName:shop,
+        user:accessToken
+        },
+          process.env.API_SECRET_KEY,
+          {
+            expiresIn:"10h"
+          }
+        )
+      
                         
         res.redirect('/index/'+token);
         console.log("app New opn");

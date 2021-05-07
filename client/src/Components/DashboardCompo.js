@@ -38,7 +38,7 @@ const MainContent = ()=>{
                     <div className="col-md-12 mt-3">
                         <div className="card" >
                             <div className="card-header">
-                                 <h2> How Its Work ? { process.env.REACT_APP_ONAKR } </h2>
+                                 <h2> How Its Work ? </h2>
                                 
                             </div>
                             <div className="card-body" >

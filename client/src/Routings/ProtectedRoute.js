@@ -12,9 +12,9 @@ const ProtectedRoute = ({ component , ...rest}) => {
         const shopLogger = async () => {
         const authChecker = async (shopname)=>{
         try {
-            let data = jwt.verify(shopname, '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' );
+            let data = jwt.verify(shopname, process.env.REACT_APP_JWT_DEC );
             console.log(data);
-            setIsVerified(true);
+            setIsVerified(data);
             localStorage.setItem("shopname", shopname)
         } catch (error) {
             setIsVerified(false);

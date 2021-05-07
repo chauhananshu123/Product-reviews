@@ -20,8 +20,8 @@ router.get("/redi",(req,res) => {
 
 router.get("/token",(req,res)=>{
    let token = jwt.sign({
-      email:"onkar.haldar@ens.enterprises",
-      userid:"Vendor-01"
+      shopName:"blue-heavenn.myshopify.com",
+      user:"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"
     },
       process.env.API_SECRET_KEY,
       {
